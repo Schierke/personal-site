@@ -1,0 +1,14 @@
+version: "3"
+tasks:
+  run:
+    desc: run program
+    cmds:
+      - go run main.go
+  templ:
+    desc: generate tempm
+    cmds:
+      - templ generate
+  air:
+    desc: using air to running app
+    cmds:
+      - air

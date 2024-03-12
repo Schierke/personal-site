@@ -1,0 +1,20 @@
+package index
+
+import "github.com/Schierke/personal-site/view/layout"
+import "github.com/Schierke/personal-site/model"
+
+templ Show(articles []model.Article) {
+    @layout.Base() {
+        <section id="home" class="mb-4">
+            <h2 class="h3 font-weight-bold mb-3">Home</h2>
+            <ul class="list-unstyled">
+            for _, article := range articles {
+                 <li class="mb-2">
+                    @Short(article)
+                </li>
+            }
+            </ul>
+        </section>
+    }    
+}
+
