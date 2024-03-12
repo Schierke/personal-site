@@ -45,7 +45,6 @@ jobs:
           key: ${{ secrets.DROPLET_SSH_PRIVATE_KEY }}
           port: ${{ secrets.DROPLET_SSH_PORT }}
           script: |
+            cd /home/app/personal-site
             docker pull schierke/personal-site
-            docker stop personal-site || true
-            docker rm personal-site || true
             docker run -d --name personal-site --network host -p 5000:5000 --env-file /home/app/personal-site/.env schierke/personal-site
