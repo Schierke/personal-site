@@ -62,10 +62,12 @@ func (s Server) RegisterRoutes() {
 	indexHandler := NewIndexHandler(articleRepo)
 	articleHandlder := NewArticleHandler(articleRepo)
 	aboutHandler := NewAboutHandler()
+	resumeHandler := NewResumeHandler()
 
 	indexHandler.RegisterRoutes(s.Router)
 	aboutHandler.RegisterRoutes(s.Router)
 	articleHandlder.RegisterRoutes(s.Router)
+	resumeHandler.RegisterRoutes(s.Router)
 }
 
 func (s Server) Start() error {
