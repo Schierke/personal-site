@@ -23,7 +23,7 @@ func Nav() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"text-center mb-4\"><h1 class=\"h4 font-weight-bold\">Manh Nguyen</h1><p class=\"text-muted\">Software Engineer</p></div><nav><ul class=\"list-unstyled\"><li class=\"mb-2\"><a href=\"/\" class=\"nav-link text-white\">Home</a></li><li class=\"mb-2\"><a href=\"/about\" class=\"nav-link text-white\">About</a></li><li class=\"mb-2\"><a href=\"/resume\" class=\"nav-link text-white\">Resume</a></li></ul></nav>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"/\" class=\"d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none\"><svg class=\"bi pe-none me-2\" width=\"40\" height=\"32\"><use xlink:href=\"#bootstrap\"></use></svg> <span class=\"fs-4\">Manh Nguyen</span></a><hr><ul class=\"nav nav-pills flex-column mb-auto\" id=\"menu\"><li class=\"nav-item\"><a href=\"/\" class=\"nav-link align-middle px-0 text-white\"><svg class=\"bi pe-none me-2\" width=\"16\" height=\"16\"><use xlink:href=\"#home\"></use></svg> Home</a></li><li><a href=\"/about\" class=\"nav-link px-0 align-middle text-white\"><svg class=\"bi pe-none me-2\" width=\"16\" height=\"16\"><use xlink:href=\"#home\"></use></svg> About</a></li><li><a href=\"/resume\" class=\"nav-link px-0 align-middle text-white\"><svg class=\"bi pe-none me-2\" width=\"16\" height=\"16\"><use xlink:href=\"#home\"></use></svg> Resume</a></li></ul>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

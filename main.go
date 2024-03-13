@@ -23,7 +23,7 @@ func loadAppConfig() (*config.AppConfig, error) {
 func main() {
 	zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
 
-	server := handler.NewServer(handler.WithPort(5000))
+	server := handler.NewServer(handler.WithPort(3000))
 
 	err := server.Start()
 
