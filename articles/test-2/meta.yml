@@ -1,8 +1,8 @@
-title: test
-short: "Welcome to my blog! I'm excited to share my thoughts and experiences with you."
+title: Hello world!
+short: "this is a function test for the blog. Feel free to ignore it. I'm just testing the functionality of the blog and also some markdown stuffs.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non odio nec urna fermentum luctus"
 date: 10-03-2024
 tags:
   - golang
-  - go
-  - templ
-  - air
+  - random
+  - test

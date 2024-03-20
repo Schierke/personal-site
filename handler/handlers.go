@@ -59,7 +59,7 @@ func NewServer(opts ...SrvConfigFunc) *Server {
 
 func (s Server) RegisterRoutes() {
 	articleRepo := repository.NewArticleRepository()
-	indexHandler := NewIndexHandler(articleRepo)
+	indexHandler := NewIndexHandler()
 	articleHandlder := NewArticleHandler(articleRepo)
 	aboutHandler := NewAboutHandler()
 	resumeHandler := NewResumeHandler()
@@ -72,5 +72,8 @@ func (s Server) RegisterRoutes() {
 
 func (s Server) Start() error {
 	s.Router.Use(middleware.Logger())
+
+	// using static middleware to serve static files
+	s.Router.Use(middleware.Static("assets"))
 	return s.Router.Start(s.Config.Addr())
 }

@@ -1,4 +1,4 @@
-package article
+package articles
 
 import (
     "github.com/Schierke/personal-site/view/layout"
@@ -26,7 +26,14 @@ func mdToHtml(md []byte) []byte {
 templ ShowArticle(article model.Article) {
     @layout.Base() {
         <article>
-            <h1 class="mb-3"> {article.Meta.Title} </h1>
+            <div class="article-head text-center">
+                <h1 class="blog-post-title"> {article.Meta.Title} </h1>
+                <p class="blog-post-meta"> 
+                    Manh Nguyen
+                    <br/>
+                    {article.Meta.Date}
+                 </p>
+            </div>
             <div>
                 @templ.Raw(string(mdToHtml(article.Content)))
             </div>

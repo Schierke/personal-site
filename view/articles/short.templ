@@ -1,0 +1,24 @@
+package articles
+
+import "github.com/Schierke/personal-site/model"
+import "fmt"
+
+templ Short(article model.Article) {
+  <div class="short text-left">
+    <h2><a class="h3 font-weight-bold mb-3 blog-title" href={templ.URL(article.Meta.Link)}>{article.Meta.Title}</a></h2>
+    <div>
+        <span class="date">{article.Meta.Date}</span> - 
+        <span class="tags">
+           for _, tag := range article.Meta.Tags {
+             <span><a class="link-light" href={templ.URL(fmt.Sprintf("/tags/%s", tag))}>{tag}</a>&nbsp;</span>
+           }
+        </span>
+    </div>
+    <div>
+        <p>
+            {article.Meta.Short}
+            <a class="link-info"href={templ.URL(article.Meta.Link)}>read more...</a>
+        </p>
+    </div>
+</div>
+}

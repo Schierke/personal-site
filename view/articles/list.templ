@@ -1,12 +1,13 @@
-package index
+package articles
 
 import "github.com/Schierke/personal-site/view/layout"
 import "github.com/Schierke/personal-site/model"
 
-templ Show(articles []model.Article) {
+templ ListArticles(articles []model.Article) {
     @layout.Base() {
-        <section id="home" class="mb-4">
-            <h2 class="h3 font-weight-bold mb-3">Home</h2>
+        <section id="blogs" class="list-article text-center">
+            <h1 class="h2 font-weight-bold mb-4">Blog</h1>
+            <p class="lead">I write about programming, technology, and other things that interest me</p>
             <ul class="list-unstyled">
             for _, article := range articles {
                  <li class="mb-2">

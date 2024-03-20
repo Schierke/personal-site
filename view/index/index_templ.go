@@ -11,9 +11,8 @@ import "io"
 import "bytes"
 
 import "github.com/Schierke/personal-site/view/layout"
-import "github.com/Schierke/personal-site/model"
 
-func Show(articles []model.Article) templ.Component {
+func ShowIndex() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -32,25 +31,7 @@ func Show(articles []model.Article) templ.Component {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section id=\"home\" class=\"mb-4\"><h2 class=\"h3 font-weight-bold mb-3\">Home</h2><ul class=\"list-unstyled\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			for _, article := range articles {
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<li class=\"mb-2\">")
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = Short(article).Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</li>")
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</ul></section>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"text-center\"><p>Hello, I am </p><h1>Nguyen Tien Manh</h1><p class=\"lead\">Software engineer</p></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
