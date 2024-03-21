@@ -27,8 +27,8 @@ func NewArticleHandler(repo ArticleRepository) *ArticleHandler {
 }
 
 func (h ArticleHandler) RegisterRoutes(router *echo.Echo) {
-	router.GET("/blogs", h.ListArticles)
-	router.GET("/articles/:id", h.ShowArticle)
+	router.GET("/blog", h.ListArticles)
+	router.GET("/blog/:id", h.ShowArticle)
 }
 
 func (h ArticleHandler) ListArticles(c echo.Context) error {

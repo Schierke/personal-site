@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func Base() templ.Component {
+func Base(title string, navPath string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,11 +23,24 @@ func Base() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>My Personal Website</title><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\"><style>       \n                .bd-placeholder-img {\n                    font-size: 1.125rem;\n                    text-anchor: middle;\n                    -webkit-user-select: none;\n                    -moz-user-select: none;\n                    user-select: none;\n                }\n\n                @media (min-width: 768px) {\n                    .bd-placeholder-img-lg {\n                    font-size: 3.5rem;\n                    }\n                }\n                </style><link href=\"/css/main.css\" rel=\"stylesheet\"></head><body class=\"d-flex h-100 text-white bg-dark\"><div class=\"cover-container d-flex w-100 h-100 p-3 mx-auto flex-column\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Nav().Render(ctx, templ_7745c5c3_Buffer)
+		var templ_7745c5c3_Var2 string
+		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/layout/base.templ`, Line: 7, Col: 25}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\"><style>       \n                .bd-placeholder-img {\n                    font-size: 1.125rem;\n                    text-anchor: middle;\n                    -webkit-user-select: none;\n                    -moz-user-select: none;\n                    user-select: none;\n                }\n\n                @media (min-width: 768px) {\n                    .bd-placeholder-img-lg {\n                    font-size: 3.5rem;\n                    }\n                }\n                </style><link href=\"/css/main.css\" rel=\"stylesheet\"><script src=\"/javascript/index.js\"></script></head><body class=\"d-flex h-100 text-white bg-dark\"><div class=\"cover-container d-flex w-100 h-100 p-3 mx-auto flex-column\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = Nav(navPath).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

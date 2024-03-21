@@ -3,7 +3,7 @@ package resume
 import "github.com/Schierke/personal-site/view/layout"
 
 templ ShowResume() {
-    @layout.Base() {
+    @layout.Base("My resume", "/resume") {
         <section id="resume" class="mb-4">
             <h2 class="h3 font-weight-bold mb-3">My resume</h2>
             <iframe src="https://drive.google.com/file/d/1nMvGXqOWruZtv_ksBBtiTFc0_-9jFO3b/preview" style="width:600px; height:500px;" frameborder="0"></iframe>

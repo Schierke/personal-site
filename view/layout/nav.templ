@@ -1,14 +1,24 @@
 package layout
 
-templ Nav() {
+import "strings"
+
+// create a function to check if the current page is the active page
+func isActive(current, path string) string {
+    if current == path || ( strings.HasPrefix(path, current) && current != "/") {
+        return "active"
+    }
+    return ""
+}
+
+templ Nav(navPath string) {
 
     <header class="mb-auto">
         <div>
         <h3 class="float-md-start mb-0"><a class="nav-link" href="/">Manh Nguyen</a></h3>
-        <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link active" aria-current="/" href="/">Home</a>
-            <a class="nav-link" href="/blogs">Blogs</a>
-            <a class="nav-link" href="/projects">Projects</a>
+        <nav id="tabs" class="nav nav-masthead justify-content-center float-md-end">
+            <a class={"nav-link", isActive("/", navPath)} aria-current="/" href="/">Home</a>
+            <a class={"nav-link", isActive("/blog", navPath)} href="/blog">Blogs</a>
+            <a class={"nav-link", isActive("/projects", navPath)} href="/projects">Projects</a>
         </nav>
         </div>
     </header>

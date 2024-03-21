@@ -4,7 +4,7 @@ import "github.com/Schierke/personal-site/view/layout"
 import "github.com/Schierke/personal-site/model"
 
 templ ListArticles(articles []model.Article) {
-    @layout.Base() {
+    @layout.Base("My blog", "/blog") {
         <section id="blogs" class="list-article text-center">
             <h1 class="h2 font-weight-bold mb-4">Blog</h1>
             <p class="lead">I write about programming, technology, and other things that interest me</p>

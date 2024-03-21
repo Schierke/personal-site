@@ -24,7 +24,7 @@ func mdToHtml(md []byte) []byte {
 
 
 templ ShowArticle(article model.Article) {
-    @layout.Base() {
+    @layout.Base(article.Meta.Title, article.Meta.Link) {
         <article>
             <div class="article-head text-center">
                 <h1 class="blog-post-title"> {article.Meta.Title} </h1>

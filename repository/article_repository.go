@@ -90,7 +90,7 @@ func getArticleMetadata(path string) (*model.ArticleMetadata, error) {
 		return nil, err
 	}
 
-	metadata.Link = fmt.Sprintf("/articles/%s", filepath.Base(path))
+	metadata.Link = fmt.Sprintf("/blog/%s", filepath.Base(path))
 
 	return &metadata, nil
 }
